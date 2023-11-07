@@ -1,0 +1,22 @@
+<!-- home.html located in transaction_site/templates/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the Transaction Site</h1>
+
+    <!-- Add Order Button -->
+    <form action="{% url 'add_order' %}" method="get">
+        <button type="submit">Add Order</button>
+    </form>
+
+    <!-- Delete Order Button -->
+    <form action="{% url 'delete_order' %}" method="get">
+        <button type="submit">Delete Order</button>
+    </form>
+</body>
+</html>

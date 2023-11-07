@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Order</title>
+</head>
+<body>
+    <h1>Add Order</h1>
+
+    {% if form %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Order</button>
+    </form>
+    {% endif %}
+
+    {% if book %}
+    <hr>
+    <h2>Book Details:</h2>
+    <pre>{{ book }}</pre>
+    {% endif %}
+</body>
+</html>
