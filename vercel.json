@@ -10,11 +10,11 @@
     "dest": "manage.py"
   }],
   "env": {
-    "DJANGO_SETTINGS_MODULE": "your_project_name.settings"
+    "DJANGO_SETTINGS_MODULE": "transaction_site.settings"
   },
   "build": {
     "env": {
-      "DJANGO_SETTINGS_MODULE": "your_project_name.settings"
+      "DJANGO_SETTINGS_MODULE": "transaction_site.settings"
     }
   }
 }
