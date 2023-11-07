@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [{
+    "src": "manage.py",
+    "use": "@vercel/python",
+    "config": { "maxLambdaSize": "50mb" }
+  }],
+  "routes": [{
+    "src": "/(.*)",
+    "dest": "manage.py"
+  }],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "your_project_name.settings"
+  },
+  "build": {
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "your_project_name.settings"
+    }
+  }
+}
