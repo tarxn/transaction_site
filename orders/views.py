@@ -35,23 +35,26 @@ def add_order(request):
         form = AddOrderForm()
     return render(request, 'orders/add_order.html', {'form': form})
 
+
 def delete_order(request):
     book_output = None
     if request.method == 'POST':
         form = DeleteOrderForm(request.POST)
         if form.is_valid():
+            book_name = form.cleaned_data['book']
             order_id = form.cleaned_data['order_id']
-            for book_name, book in books_map.items():
+            book = books_map.get(book_name)
+            if book:
                 if any(order for order in book.buy_orders + book.sell_orders if order.order_id == order_id):
                     book.delete_order(order_id)
                     book_output = book.print_book()
-                    break
-            if not book_output:
+                else:
+                    book_output = "Order not found."
+            else:
                 book_output = "Order not found."
             return render(request, 'orders/delete_order.html', {'form': form, 'book': book_output})
     else:
         form = DeleteOrderForm()
-
     return render(request, 'orders/delete_order.html', {'form': form, 'book': book_output})
 
 def home(request):

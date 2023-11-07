@@ -15,7 +15,8 @@
     </form>
     {% endif %}
 
-    {% if book %}
+    <!-- This section will only display if 'book' contains details of a book -->
+    {% if book and book != "Order not found or book does not exist." %}
     <hr>
     <h2>Book Details:</h2>
     <pre>{{ book }}</pre>
